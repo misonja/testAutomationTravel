@@ -3,6 +3,7 @@
 "baseUrl" : "https://www.phptravels.net/",
 "customerUser" : {
     "username" : "user@phptravels.com",
+    "wrongUsername" : "user",
     "password" : "demouser",
     "wrongPassword" : "test"
 },

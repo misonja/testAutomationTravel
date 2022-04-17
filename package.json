@@ -1,5 +1,11 @@
 {
   "devDependencies": {
     "cypress": "^9.5.4"
+  },
+  "scripts": {
+    "cypress:run": "npx cypress run --spec cypress/integration/tests/*",
+    "cypress:open": "npx cypress open cypress/integration/tests/*",
+    "testFilesE2E" : "cypress open cypress/integration/tests/*.spec.js",
+    "testFiles": "**/*.feature"
   }
 }
