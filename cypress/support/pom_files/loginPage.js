@@ -1,6 +1,6 @@
 const title = {
-    title: '',
-    info: ''
+    title: '.modal-title',
+    info: '.font-size-14'
 }
 
 const form = {
