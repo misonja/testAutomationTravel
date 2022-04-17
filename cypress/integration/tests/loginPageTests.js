@@ -19,7 +19,7 @@ describe('Login application tests', function() {
               .should('equal', form.inputFieldEmpty)
      });
 
-     it('Login - wrong email', function() {   
+     it.only('Login - wrong email', function() {   
         cy.get(form.email).type('asdasd',{force: true})    
         cy.get(form.login).click({force: true})  
             cy.get(form.email).invoke('prop', 'validationMessage')
@@ -40,11 +40,10 @@ describe('Login application tests', function() {
         .should('equal', form.inputFieldEmpty)
      });
           
-     it.only('Login - entered proper email, wrong password', function() {   
+     it('Login - entered proper email, wrong password', function() {   
         cy.get(form.email).type(customerUser.username, {force: true})   
         cy.get(form.password).type(customerUser.wrongPassword, {force: true})
         cy.get(form.login).click({force: true})  
-        cy.get(form.wrongCredential)
-        .should('have.text', form.wrongCredentialText)
+        cy.get('form.wrongCredential').should('have.text', form.wrongCredentialText);
      });
 })
