@@ -1,5 +1,5 @@
 const topHeader = {
-    signup: '.theme-btn.theme-btn-small.waves-effect',
+    signup: '[href="https://www.phptravels.net/signup"]',
     login : '.theme-btn-transparent'
 }
 

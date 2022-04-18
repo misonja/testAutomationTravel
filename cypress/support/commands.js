@@ -23,3 +23,8 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add("verifyRequiredFields", () => {
+    cy.get(formSignUp.signup).click({force: true})       
+    cy.get(formSignUp.lastName).invoke('prop', 'validationMessage')
+      .should('equal', form.inputFieldEmpty)
+    });

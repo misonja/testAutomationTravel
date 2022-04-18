@@ -8,7 +8,7 @@ const customerUser = Cypress.env("customerUser")
 const agentUser = Cypress.env("agentUser")
 
 describe('Login application tests', function() {
-     beforeEach('Visit application', function() {
+     beforeEach('Navigate to Login page', function() {
          cy.visit(Cypress.env("baseUrl"))
          cy.get(topHeader.login).click()
      });
