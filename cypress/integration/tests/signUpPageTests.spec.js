@@ -68,7 +68,7 @@ describe('Navigate to Sing Up page', function() {
       
      });
      
-     it.only('Navigate back to Login page', function() {   
+     it('Navigate back to Login page', function() {   
         cy.get(formSignUp.login).click({force: true})    
         cy.get(form.email).should("be.visible")
      });
