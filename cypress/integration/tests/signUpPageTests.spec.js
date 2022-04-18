@@ -33,7 +33,7 @@ describe('Navigate to Sing Up page', function() {
           .should('equal', form.inputFieldEmpty)
      });
 
-     it.only('Check if all sign up fields are mandatory and have proper error message', function() {   
+     it('Check if all sign up fields are mandatory and have proper error message', function() {   
       cy.get(formSignUp.signup).click({force: true})    
         cy.get(formSignUp.firstName).invoke('prop', 'validationMessage')
               .should('equal', form.inputFieldEmpty)
@@ -68,32 +68,8 @@ describe('Navigate to Sing Up page', function() {
       
      });
      
-     it('Login - entered proper email', function() {   
-        cy.get(form.email).type(customerUser.username, {force: true})    
-        cy.get(form.login).click({force: true})  
-        cy.get(form.password).invoke('prop', 'validationMessage')
-          .should('equal', form.inputFieldEmpty)
+     it.only('Navigate back to Login page', function() {   
+        cy.get(formSignUp.login).click({force: true})    
+        cy.get(form.email).should("be.visible")
      });
-     
-     it('Login - entered proper email, empty password', function() {   
-        cy.get(form.email).type(customerUser.username, {force: true})    
-        cy.get(form.login).click({force: true})  
-        cy.get(form.password).invoke('prop', 'validationMessage')
-        .should('equal', form.inputFieldEmpty)
-     });
-          
-     it('Login - entered proper email, wrong password', function() {   
-        cy.get(form.email).type(customerUser.username, {force: true})   
-        cy.get(form.password).type(customerUser.wrongPassword, {force: true})
-        cy.get(form.login).click({force: true})  
-        cy.get(form.wrongCredential, {timeout:2000}).should('have.text', form.wrongCredentialText);
-     });
-
-     it('Login - entered wrong email, proper password', function() {   
-      cy.get(form.email).type(customerUser.wrongUsername, {force: true})   
-      cy.get(form.password).type(customerUser.password, {force: true})
-      cy.get(form.login).click({force: true})  
-      cy.get(form.email).invoke('prop', 'validationMessage')
-      .should('equal', form.emailFormat)
-   });
 })
