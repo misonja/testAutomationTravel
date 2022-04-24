@@ -5,7 +5,7 @@
   "scripts": {
     "cypress:run": "npx cypress run --spec cypress/integration/tests/*",
     "cypress:open": "npx cypress open cypress/integration/tests/*",
-    "testFilesE2E" : "cypress open cypress/integration/tests/*.spec.js",
+    "testFilesE2E" : "npx cypress open cypress/integration/tests/*-spec.js",
     "testFiles": "**/*.feature"
   }
 }

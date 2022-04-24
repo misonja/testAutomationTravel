@@ -1,3 +1,7 @@
+const headerHotels = {
+totalHotels : '.breadcrumb-list > .list-items > li'
+}
+
 const search = {
 cityName : '#select2-hotels_city-container',
 cityNameInput : '.select2-search__field',
@@ -25,4 +29,4 @@ const searchResult = {
 hotelsList: '.hotels_amenities_'
 }
 
-export {search,featuredHotels, searchResult }
+export {headerHotels,search,featuredHotels, searchResult }

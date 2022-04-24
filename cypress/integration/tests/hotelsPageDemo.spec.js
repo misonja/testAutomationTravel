@@ -3,14 +3,20 @@
 import {topHeader, mainMenu} from "../../support/pom_files/header"
 import {title, form} from "../../support/pom_files/loginPage"
 import {sidebar,info,accountDemoInfo } from "../../support/pom_files/homePageDemo"
-import {search,featuredHotels, searchResult } from "../../support/pom_files/hotelsPage"
+import {headerHotels,search,featuredHotels, searchResult  } from "../../support/pom_files/hotelsPage"
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here prevents Cypress from
+    // failing the test
+    return false
+  })
 
 const customerUser = Cypress.env("customerUser")
 const agentUser = Cypress.env("agentUser")
 
 const expected = [
-    'Rendezvous Hotels',
-    'Swissotel Le Plaza Basel ',
+    'Rendezvous Hotels                    \n                  ',
+    'Swissotel Le Plaza Basel                    \n                  ',
 ]
 
 describe('Login application tests', function() {
@@ -30,7 +36,7 @@ describe('Login application tests', function() {
         cy.get(search.cityNameInput, {timeout:4000}).type('Sing', {force: true})
         cy.get(search.cityNameItem).click()
         cy.get(search.search).click({force:true})
-        cy.get('#fadein > section.breadcrumb-area.bread-bg-7 > div > div > div > div:nth-child(2) > div > ul > li')
+        cy.get(headerHotels.totalHotels)
         .find('strong')
         .then((value) =>{
             hotelsNum = value[0].innerText;
@@ -38,10 +44,10 @@ describe('Login application tests', function() {
         cy.get(searchResult.hotelsList).children().then((item) => {
         expect(item.length).to.be.eq(Number(hotelsNum));
         for(let i = 0; i < item.length; i++){
-            cy.get('li')
+            cy.get('.card-body.p-0')
               .eq(i)
               .find('div')
-              .eq(2)
+              .eq(0)
               .find('h3')
               .should('have.text', expected[i])
         }
