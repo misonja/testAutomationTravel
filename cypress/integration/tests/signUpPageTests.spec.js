@@ -12,7 +12,7 @@ describe('Navigate to Sing Up page', function() {
          cy.get(topHeader.signup).click()
      });
 
-     it('Verify elements on the page', function() {   
+     it.only('Verify elements on the page', function() {   
       cy.get(titleSignUp.title).should("be.visible")    
       cy.get(titleSignUp.info).should("be.visible")   
 
@@ -22,8 +22,8 @@ describe('Navigate to Sing Up page', function() {
       cy.get(formSignUp.email).should("be.visible") 
       cy.get(formSignUp.password).should("be.visible") 
       cy.get(formSignUp.accountType).should("be.visible").should("have.text", "Customer")  
-      cy.get(formSignUp.signup).should("be.enabled")
-      cy.get(formSignUp.login).should("be.enabled")
+      cy.get(formSignUp.signup).should("be.visible")
+      cy.get(formSignUp.login).should("be.visible")
    });
 
 
