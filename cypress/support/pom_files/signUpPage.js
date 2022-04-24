@@ -11,7 +11,7 @@ const formSignUp = {
     password: '[name="email"]',
     accountType: '#select2-account_type-container',
     accountTypeItem: '#select2-account_type-container',
-    login: '.btn-outline-primary',
+    login: '.btn-box > .btn',
     signup: '.mt-3 > .btn'
     }
     

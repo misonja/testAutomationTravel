@@ -23,6 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import {topHeader} from "../support/pom_files/header"
+export {title, form} from "../support/pom_files/loginPage"
+
+
+Cypress.Commands.add("loginToApp", (email, password) => {
+  cy.get(form.email).type(email, {force: true})       
+  cy.get(form.password).type(password, {force: true})
+  cy.get(form.login).click({force: true})
+  });
+
 Cypress.Commands.add("verifyRequiredFields", () => {
     cy.get(formSignUp.signup).click({force: true})       
     cy.get(formSignUp.lastName).invoke('prop', 'validationMessage')
