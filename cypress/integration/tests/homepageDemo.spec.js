@@ -10,10 +10,7 @@ const agentUser = Cypress.env("agentUser")
 describe('Login application tests', function() {
      beforeEach('Navigate to Login page and login demo user', function() {
          cy.visit(Cypress.env("baseUrl"))
-         cy.get(topHeader.login).click()
-         cy.get(form.email).type(customerUser.username, {force: true})       
-         cy.get(form.password).type(customerUser.password, {force: true})
-         cy.get(form.login).click({force: true})
+         cy.loginToApp(agentUser.username,agentUser.password)
      });
 
      it('Verify homePage demo user', function() {

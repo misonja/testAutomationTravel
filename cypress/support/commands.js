@@ -24,12 +24,13 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import {topHeader} from "../support/pom_files/header"
-export {title, form} from "../support/pom_files/loginPage"
+import {title, form} from "../support/pom_files/loginPage"
 
 
-Cypress.Commands.add("loginToApp", (email, password) => {
-  cy.get(form.email).type(email, {force: true})       
-  cy.get(form.password).type(password, {force: true})
+Cypress.Commands.add('loginToApp', (emailText, passwordText) => {
+  cy.get(topHeader.login).click()
+  cy.get(form.email).type(emailText, {force: true})       
+  cy.get(form.password).type(passwordText, {force: true})
   cy.get(form.login).click({force: true})
   });
 

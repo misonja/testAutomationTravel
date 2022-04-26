@@ -22,10 +22,7 @@ const expected = [
 describe('Login application tests', function() {
      beforeEach('Navigate to Hotels page and login demo user', function() {
          cy.visit(Cypress.env("baseUrl"))
-   //      cy.get(topHeader.login).click()
-   //      cy.get(form.email).type(agentUser.username, {force: true})       
-   //     cy.get(form.password).type(agentUser.password, {force: true})
-   //      cy.get(form.login).click({force: true})
+         cy.loginToApp(agentUser.username,agentUser.password)
          cy.get(mainMenu.hotels).click({force: true})
          cy.get(search.cityName, {timeout:3000}).should('be.visible')
      });
