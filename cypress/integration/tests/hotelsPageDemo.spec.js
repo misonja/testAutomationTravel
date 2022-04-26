@@ -22,19 +22,46 @@ const expected = [
 describe('Login application tests', function() {
      beforeEach('Navigate to Hotels page and login demo user', function() {
          cy.visit(Cypress.env("baseUrl"))
-     //    cy.get(topHeader.login).click()
-     //    cy.get(form.email).type(customerUser.username, {force: true})       
-    //    cy.get(form.password).type(customerUser.password, {force: true})
-    //     cy.get(form.login).click({force: true})
+   //      cy.get(topHeader.login).click()
+   //      cy.get(form.email).type(agentUser.username, {force: true})       
+   //     cy.get(form.password).type(agentUser.password, {force: true})
+   //      cy.get(form.login).click({force: true})
          cy.get(mainMenu.hotels).click({force: true})
          cy.get(search.cityName, {timeout:3000}).should('be.visible')
      });
       
-     it('Search Hotel by name demo user', function() {
+     it('Search Hotel by name Sin demo user', function() {
         let hotelsNum;
         cy.get(search.cityName).click({force:true})
         cy.get(search.cityNameInput, {timeout:4000}).type('Sing', {force: true})
-        cy.get(search.cityNameItem).click()
+        cy.get(search.cityNameItem).click({force: true})
+        cy.get(search.search).click({force:true})
+        cy.get(headerHotels.totalHotels)
+        .find('strong')
+        .then((value) =>{
+            hotelsNum = value[0].innerText;
+        }).then(()=>{
+        cy.get(searchResult.hotelsList).children().then((item) => {
+        expect(item.length).to.be.eq(Number(hotelsNum));
+        for(let i = 0; i < item.length; i++){
+            cy.get('.card-body.p-0')
+              .eq(i)
+              .find('div')
+              .eq(0)
+              .find('h3')
+              .should('have.text', expected[i])
+        }
+    })
+})
+     })
+
+     it('Search Hotel by name Sin demo user - one child', function() {
+        let hotelsNum;
+        cy.get(search.cityName).click({force:true})
+        cy.get(search.cityNameInput, {timeout:4000}).type('Sing', {force: true})
+        cy.get(search.cityNameItem).click({force: true})
+        cy.get(search.travellers).click({force: true})
+        cy.get(search.childInc).click({force: true})
         cy.get(search.search).click({force:true})
         cy.get(headerHotels.totalHotels)
         .find('strong')
