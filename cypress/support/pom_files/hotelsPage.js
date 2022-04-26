@@ -5,7 +5,7 @@ totalHotels : '.breadcrumb-list > .list-items > li'
 const search = {
 cityName : '#select2-hotels_city-container',
 cityNameInput : '.select2-search__field',
-cityNameItem: '.select2-results__option--highlighted',
+cityNameItem: '.flag.sg',
 checkin: '#checkin',
 checkout: '#checkout',
 travellers: '.travellers ',

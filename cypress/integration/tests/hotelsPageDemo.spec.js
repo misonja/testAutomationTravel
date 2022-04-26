@@ -22,10 +22,10 @@ const expected = [
 describe('Login application tests', function() {
      beforeEach('Navigate to Hotels page and login demo user', function() {
          cy.visit(Cypress.env("baseUrl"))
-         cy.get(topHeader.login).click()
-         cy.get(form.email).type(customerUser.username, {force: true})       
-         cy.get(form.password).type(customerUser.password, {force: true})
-         cy.get(form.login).click({force: true})
+     //    cy.get(topHeader.login).click()
+     //    cy.get(form.email).type(customerUser.username, {force: true})       
+    //    cy.get(form.password).type(customerUser.password, {force: true})
+    //     cy.get(form.login).click({force: true})
          cy.get(mainMenu.hotels).click({force: true})
          cy.get(search.cityName, {timeout:3000}).should('be.visible')
      });
