@@ -28,9 +28,7 @@ describe('Navigate to Sing Up page', function() {
 
 
      it('Click on Sing-up while all fields are not populated', function() {   
-        cy.get(formSignUp.signup).click({force: true})       
-          cy.get(formSignUp.firstName).invoke('prop', 'validationMessage')
-          .should('equal', form.inputFieldEmpty)
+      cy.verifyRequiredFields()
      });
 
      it('Check if all sign up fields are mandatory and have proper error message', function() {   
@@ -41,30 +39,22 @@ describe('Navigate to Sing Up page', function() {
         cy.get(formSignUp.firstName)
         .click({force: true})
         .type(accountInfo1.firstName, {force: true})
-        cy.get(formSignUp.signup).click({force: true})       
-        cy.get(formSignUp.lastName).invoke('prop', 'validationMessage')
-          .should('equal', form.inputFieldEmpty)
+        cy.verifyRequiredFields()
 
           cy.get(formSignUp.lastName)
           .click({force: true})
           .type(accountInfo1.lastName, {force: true})
-          cy.get(formSignUp.signup).click({force: true})       
-          cy.get(formSignUp.phone).invoke('prop', 'validationMessage')
-            .should('equal', form.inputFieldEmpty)
+          cy.verifyRequiredFields()
 
             cy.get(formSignUp.phone)
             .click({force: true})
             .type(accountInfo1.phone, {force: true})
-            cy.get(formSignUp.signup).click({force: true})       
-            cy.get(formSignUp.email).invoke('prop', 'validationMessage')
-              .should('equal', form.inputFieldEmpty)
+            cy.verifyRequiredFields()
 
               cy.get(formSignUp.email)
               .click({force: true})
               .type(accountInfo1.email, {force: true})
-              cy.get(formSignUp.signup).click({force: true})       
-              cy.get(formSignUp.password).invoke('prop', 'validationMessage')
-                .should('equal', form.inputFieldEmpty)
+              cy.verifyRequiredFields()
       
      });
      

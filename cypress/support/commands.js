@@ -34,7 +34,7 @@ Cypress.Commands.add('loginToApp', (emailText, passwordText) => {
   cy.get(form.login).click({force: true})
   });
 
-Cypress.Commands.add("verifyRequiredFields", () => {
+Cypress.Commands.add('verifyRequiredFields', () => {
     cy.get(formSignUp.signup).click({force: true})       
     cy.get(formSignUp.lastName).invoke('prop', 'validationMessage')
       .should('equal', form.inputFieldEmpty)
