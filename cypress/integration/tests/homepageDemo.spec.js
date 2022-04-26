@@ -7,6 +7,12 @@ import {sidebar,info,accountDemoInfo } from "../../support/pom_files/homePageDem
 const customerUser = Cypress.env("customerUser")
 const agentUser = Cypress.env("agentUser")
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here prevents Cypress from
+    // failing the test
+    return false
+  })
+
 describe('Login application tests', function() {
      beforeEach('Navigate to Login page and login demo user', function() {
          cy.visit(Cypress.env("baseUrl"))
