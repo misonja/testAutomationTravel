@@ -11,9 +11,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false
   })
 
-const customerUser = Cypress.env("customerUser")
-const agentUser = Cypress.env("agentUser")
-
 const expected = [
     'Rendezvous Hotels                    \n                  ',
     'Swissotel Le Plaza Basel                    \n                  ',
@@ -22,7 +19,6 @@ const expected = [
 describe('Login application tests', function() {
      beforeEach('Navigate to Hotels page and login demo user', function() {
          cy.visit(Cypress.env("baseUrl"))
-         cy.loginToApp(agentUser.username,agentUser.password)
          cy.get(mainMenu.hotels).click({force: true})
          cy.get(search.cityName, {timeout:3000}).should('be.visible')
      });
