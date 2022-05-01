@@ -12,7 +12,7 @@ describe('Navigate to Sing Up page', function() {
          cy.get(topHeader.signup).click()
      });
 
-     it.only('Verify elements on the page', function() {   
+     it('Verify elements on the page', function() {   
       cy.get(titleSignUp.title).should("be.visible")    
       cy.get(titleSignUp.info).should("be.visible")   
 
@@ -34,7 +34,6 @@ describe('Navigate to Sing Up page', function() {
      });
 
      it('Check if all sign up fields are mandatory and have proper error message', function() {   
-          cy.verifyRequiredFields(formSignUp.firstName )
 
         cy.get(formSignUp.firstName)
         .click({force: true})

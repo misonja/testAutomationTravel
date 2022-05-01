@@ -18,7 +18,7 @@ const info = {
 
 const accountDemoInfo = {
     accountInfo:'.section-heading',
-    acoountInfoLeft: ''
+    accountInfoName: '.sec__title > span'
 }
 
 export {sidebar,info,accountDemoInfo }

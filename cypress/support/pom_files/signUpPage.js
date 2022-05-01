@@ -8,7 +8,7 @@ const formSignUp = {
     lastName: '[name="last_name"]',
     phone: '[name="phone"]',
     email: '[name="email"]',
-    password: '[name="email"]',
+    password: '[name="password"]',
     accountType: '#select2-account_type-container',
     accountTypeItem: '#select2-account_type-container',
     login: '.btn-box > .btn',

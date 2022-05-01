@@ -16,10 +16,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 describe('Login application tests', function() {
      beforeEach('Navigate to Login page and login demo user', function() {
          cy.visit(Cypress.env("baseUrl"))
-         cy.loginToApp(agentUser.username,agentUser.password)
+         cy.loginToApp(customerUser.username,customerUser.password)
      });
 
      it('Verify homePage demo user', function() {
          cy.get(sidebar.addFunds).should('be.visible')
+         cy.get(accountDemoInfo.accountInfoName).should('have.text', 'Demo')
+         cy.get(sidebar.logout).click()
+         cy.get(form.email).should('be.visible')
      })
 })
