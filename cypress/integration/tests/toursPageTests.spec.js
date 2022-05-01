@@ -5,10 +5,10 @@ import {tours,searchTours,filter} from "../../support/pom_files/toursPage"
 
 const expected = 'Private Custom New York City Tour by SUV                    \n                  '
 
+
   describe('Login application tests', function() {
     beforeEach('Navigate to Tours page and login demo user', function() {
         cy.visit(Cypress.env("baseUrl"))
-   //     cy.loginToApp(demoUser.username,demoUser.password)
         cy.get(mainMenu.tours).click({force:true})
     });
 
