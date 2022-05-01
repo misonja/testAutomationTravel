@@ -17,7 +17,6 @@ const expected = 'Private Custom New York City Tour by SUV                    \n
     });
 
     it.only('Verify tours for specific price', function() {
-      let toursNum; 
       cy.get(tours.destinationDropDown).click({force:true})
       cy.get(tours.destinationField).type("York", {force:true})
       cy.get(tours.destinationDropDownItem).click({force:true})
