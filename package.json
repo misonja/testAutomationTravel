@@ -1,11 +1,16 @@
 {
   "devDependencies": {
-    "cypress": "^9.5.4"
+    "@types/lodash": "^4.14.182",
+    "cypress": "^9.5.4",
+    "cypress-react-selector": "^2.3.17"
   },
   "scripts": {
     "cypress:run": "npx cypress run --spec cypress/integration/tests/*",
     "cypress:open": "npx cypress open cypress/integration/tests/*",
-    "testFilesE2E" : "npx cypress open cypress/integration/tests/*-spec.js",
+    "testFilesE2E": "npx cypress open cypress/integration/tests/*-spec.js",
     "testFiles": "**/*.feature"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
