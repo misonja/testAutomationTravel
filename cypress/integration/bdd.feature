@@ -1,6 +1,4 @@
-Feature: Check Navigation headers
-
-    Check if user can navigate to pages
+Feature: Check if user can navigate to pages
 
     Scenario: Blog page navigation
     Given user is logged in

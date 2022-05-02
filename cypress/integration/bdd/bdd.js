@@ -1,4 +1,4 @@
-import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
+import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 
 import {title, form} from "../../support/pom_files/loginPage"
 const customerUser = Cypress.env("customerUser")
