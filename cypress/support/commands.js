@@ -49,3 +49,14 @@ Cypress.Commands.add('verifyRequiredFields', (element2) => {
         .trigger('mousedown',{force: true} )
         .invoke('attr', 'value', '1320').trigger('mousemove',{force: true} )
     });
+
+    Cypress.Commands.add("userLogout", () => {
+      cy.get(sidebar.logout).click({force: true})
+      cy.get(form.email).should('be.visible')
+    });
+
+    Cypress.Commands.add("userLogoutAccount", () => {
+      cy.get(topHeader.account).click({force: true})
+      cy.get(topHeader.logoutAccount).click({force: true})
+      cy.get(form.email).should('be.visible')
+    });

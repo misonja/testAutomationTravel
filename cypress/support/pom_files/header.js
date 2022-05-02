@@ -1,6 +1,8 @@
 const topHeader = {
     signup: '[href="https://www.phptravels.net/signup"]',
-    login : '.theme-btn-transparent'
+    login : '.theme-btn-transparent',
+    account: ':nth-child(3) > .dropdown > #currency',
+    logoutAccount: ':nth-child(3) > .dropdown > .dropdown-menu > :nth-child(5) > .dropdown-item'
 }
 
 const mainMenu = {

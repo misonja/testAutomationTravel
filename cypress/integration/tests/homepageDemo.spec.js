@@ -22,7 +22,6 @@ describe('Login application tests', function() {
      it('Verify homePage demo user', function() {
          cy.get(sidebar.addFunds).should('be.visible')
          cy.get(accountDemoInfo.accountInfoName).should('have.text', 'Demo')
-         cy.get(sidebar.logout).click()
-         cy.get(form.email).should('be.visible')
+         cy.userLogout()
      })
 })
