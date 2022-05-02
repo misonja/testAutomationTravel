@@ -27,6 +27,7 @@ import {topHeader} from "../support/pom_files/header"
 import {title, form} from "../support/pom_files/loginPage"
 import { tours,searchTours,filter} from "./pom_files/toursPage";
 import {titleSignUp, formSignUp} from "./pom_files/signUpPage";
+import {sidebar,info,accountDemoInfo } from "./pom_files/homePageDemo";
 
 Cypress.Commands.add('loginToApp', (emailText, passwordText) => {
   cy.get(topHeader.login).click()

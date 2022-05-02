@@ -11,7 +11,12 @@
     "cypress:run": "npx cypress run --spec cypress/integration/tests/*",
     "cypress:open": "npx cypress open cypress/integration/tests/*",
     "testFilesE2E": "npx cypress open cypress/integration/tests/*-spec.js",
-    "testFiles": "**/*.feature"
+    "testFiles": "**/*.feature",
+    "report:allure": "allure generate allure-results --clean -o allure-report && allure open allure-report",
+    "test:cy_spec": "cypress run --spec cypress/integration/tests/homepageDemo.spec.js --config video=false --env allure=true --reporter mocha-allure-reporter",
+    "test:cy": "cypress run --config video=false --env allure=true --reporter mocha-allure-reporter",
+    "test:allure_spec:": "npm run test:cy_spec && npm run report:allure",
+    "test:allure:": "npm run test:cy && npm run report:allure"
   },
   "dependencies": {
     "cypress-cucumber-preprocessor": "^4.3.1",
