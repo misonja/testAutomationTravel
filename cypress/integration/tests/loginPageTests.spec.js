@@ -2,7 +2,8 @@
 
 import {topHeader} from "../../support/pom_files/header"
 import {title, form} from "../../support/pom_files/loginPage"
-
+import {sidebar,info,accountDemoInfo } from "../../support/pom_files/homePageDemo"
+import { capitalize } from "lodash"
 
 const customerUser = Cypress.env("customerUser")
 const agentUser = Cypress.env("agentUser")
@@ -53,5 +54,14 @@ describe('Login application tests', function() {
       cy.get(form.login).click({force: true})  
       cy.get(form.email).invoke('prop', 'validationMessage')
       .should('equal', form.emailFormat)
+   });
+
+   it.only('Login - entered proper email, proper password', function() {   
+      cy.get(form.email).type(customerUser.username, {force: true})   
+      cy.get(form.password).type(customerUser.password, {force: true})
+      cy.get(form.login).click({force: true})  
+      cy.get(sidebar.myBooking).should('be.visible')
+      cy.userLogout()
+      cy.get(form.email).should('be.visible')
    });
 })
