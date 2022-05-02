@@ -10,7 +10,7 @@
   "scripts": {
     "cypress:run": "npx cypress run --spec cypress/integration/tests/*",
     "cypress:open": "npx cypress open cypress/integration/tests/*",
-    "testFilesE2E": "npx cypress open cypress/integration/tests/*-spec.js",
+    "testFilesE2E": "npx cypress open cypress/integration/tests/*.spec.js",
     "testFiles": "**/*.feature",
     "report:allure": "allure generate allure-results --clean -o allure-report && allure open allure-report",
     "test:cy_spec": "cypress run --spec cypress/integration/tests/homepageDemo.spec.js --config video=false --env allure=true --reporter mocha-allure-reporter",
