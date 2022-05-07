@@ -3,7 +3,7 @@
 import {topHeader, mainMenu} from "../../support/pom_files/header"
 import {tours,searchTours,filter} from "../../support/pom_files/toursPage"
 
-const expected = 'Private Custom New York City Tour by SUV                    \n                  '
+const expected = 'Private Custom New York City Tour by SUV'
 
 
   describe('Login application tests', function() {
@@ -26,6 +26,6 @@ const expected = 'Private Custom New York City Tour by SUV                    \n
       cy.wait(5000)
       
       cy.get(searchTours.tourTitleFirst)
-            .should('have.text', expected)
+            .contains(expected)
     })
          })

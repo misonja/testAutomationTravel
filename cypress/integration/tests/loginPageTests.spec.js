@@ -45,7 +45,7 @@ describe('Login application tests', function() {
         cy.get(form.email).type(customerUser.username, {force: true})   
         cy.get(form.password).type(customerUser.wrongPassword, {force: true})
         cy.get(form.login).click({force: true})  
-        cy.get(form.wrongCredential, {timeout:2000}).should('have.text', form.wrongCredentialText);
+        cy.get(form.wrongCredential, {timeout:2000}).contains(form.wrongCredentialText);
      });
 
      it('Login - entered wrong email, proper password', function() {   
@@ -56,7 +56,7 @@ describe('Login application tests', function() {
       .should('equal', form.emailFormat)
    });
 
-   it.only('Login - entered proper email, proper password', function() {   
+   it('Login - entered proper email, proper password', function() {   
       cy.get(form.email).type(customerUser.username, {force: true})   
       cy.get(form.password).type(customerUser.password, {force: true})
       cy.get(form.login).click({force: true})  

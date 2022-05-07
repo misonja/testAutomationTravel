@@ -28,9 +28,7 @@ describe('Navigate to Sing Up page', function() {
 
 
      it('Click on Sing-up while all fields are not populated', function() {   
-        cy.get(formSignUp.signup).click({force: true})       
-          cy.get(formSignUp.firstName).invoke('prop', 'validationMessage')
-          .should('equal', form.inputFieldEmpty)
+          cy.verifyRequiredFields(formSignUp.firstName )
      });
 
      it('Check if all sign up fields are mandatory and have proper error message', function() {   

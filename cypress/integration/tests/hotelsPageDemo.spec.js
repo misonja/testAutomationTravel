@@ -12,8 +12,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   })
 
 const expected = [
-    'Rendezvous Hotels                    \n                  ',
-    'Swissotel Le Plaza Basel                    \n                  ',
+    'Rendezvous Hotels',
+    'Swissotel Le Plaza Basel',
 ]
 
 describe('Login application tests', function() {
@@ -42,7 +42,7 @@ describe('Login application tests', function() {
               .find('div')
               .eq(0)
               .find('h3')
-              .should('have.text', expected[i])
+              .contains(expected[i])
         }
     })
 })
@@ -69,7 +69,7 @@ describe('Login application tests', function() {
               .find('div')
               .eq(0)
               .find('h3')
-              .should('have.text', expected[i])
+              .contains(expected[i])
         }
     })
 })
