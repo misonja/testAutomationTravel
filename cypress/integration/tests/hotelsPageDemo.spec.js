@@ -27,7 +27,7 @@ describe('Hotels page tests', function() {
         let hotelsNum;
         cy.get(search.cityName).click({force:true})
         cy.get(search.cityNameInput, {timeout:4000}).type('Sing', {force: true})
-        cy.get(search.cityNameItem).click({force: true})
+        cy.selectCityFromList('Singapore')
         cy.get(search.search).click({force:true})
         cy.get(headerHotels.totalHotels)
         .find('strong')
@@ -48,7 +48,7 @@ describe('Hotels page tests', function() {
 })
      })
 
-     it.only('Search Hotel by name Sin demo user - one child', function() {
+     it('Search Hotel by name Sin demo user - one child', function() {
         let hotelsNum;
         cy.get(search.cityName).click({force:true})
         cy.get(search.cityNameInput, {timeout:4000}).type('Sing', {force: true})
