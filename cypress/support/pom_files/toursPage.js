@@ -27,7 +27,7 @@ const searchTours = {
     toursList : '.hotels_amenities_',
     pageNumber : 'div > div > div > div:nth-child(2) > div > ul > li',
     filterTitle: ':nth-child(2) > .title',
-    tourTitleFirst: '#private-custom-new-york-city-tour-by-suv > .card-item > .card-body > .row > .col-8 > .card-title'
+    tourTitleFirst: '.card-item > .card-body > .row > .col-8 > .card-title'
 }
 
 export {tours,searchTours,filter}

@@ -16,10 +16,10 @@ const expected = [
     'Swissotel Le Plaza Basel',
 ]
 
-describe('Login application tests', function() {
+describe('Hotels page tests', function() {
      beforeEach('Navigate to Hotels page and login demo user', function() {
          cy.visit(Cypress.env("baseUrl"))
-         cy.get(mainMenu.hotels).click({force: true})
+         cy.contains(mainMenu.hotels).click({force: true})
          cy.get(search.cityName, {timeout:3000}).should('be.visible')
      });
       

@@ -3,13 +3,13 @@
 import {topHeader, mainMenu} from "../../support/pom_files/header"
 import {tours,searchTours,filter} from "../../support/pom_files/toursPage"
 
-const expected = 'Private Custom New York City Tour by SUV'
+const expected = 'Boston Chauffeured Sedan Service'
 
 
   describe('Login application tests', function() {
     beforeEach('Navigate to Tours page and login demo user', function() {
         cy.visit(Cypress.env("baseUrl"))
-        cy.get(mainMenu.tours).click({force:true})
+        cy.contains(mainMenu.tours).click({force:true})
     });
 
     it('Verify tours demo user', function() {
