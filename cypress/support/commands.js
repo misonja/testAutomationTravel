@@ -28,6 +28,8 @@ import {title, form} from "../support/pom_files/loginPage"
 import { tours,searchTours,filter} from "./pom_files/toursPage";
 import {titleSignUp, formSignUp} from "./pom_files/signUpPage";
 import {sidebar,info,accountDemoInfo } from "./pom_files/homePageDemo";
+import {headerHotels,search,featuredHotels, searchResult  } from "../support/pom_files/hotelsPage"
+
 
 Cypress.Commands.add('loginToApp', (emailText, passwordText) => {
   cy.get(topHeader.login).click()
@@ -41,6 +43,10 @@ Cypress.Commands.add('verifyRequiredFields', (element2) => {
     cy.get(element2).invoke('prop', 'validationMessage')
       .should('equal', form.inputFieldEmpty)
     });
+
+    Cypress.Commands.add('selectCityFromList', (city) => {
+      cy.get (search.cityListGlobal).contains(city).click({force: true})
+      });
 
  Cypress.Commands.add("setAmountRange", () => {
       cy.get(searchTours.filterTitle)
