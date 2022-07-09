@@ -12,8 +12,8 @@ const expected = 'Boston Chauffeured Sedan Service'
         cy.contains(mainMenu.tours).click({force:true})
     });
 
-    it('Verify tours demo user', function() {
-        cy.get(tours.title).should('be.visible')
+    it('Verify tours', function() {
+        cy.get(headerPage.pageTitle).should('be.visible')
     });
 
     it('Verify tours for specific price', function() {
