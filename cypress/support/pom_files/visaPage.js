@@ -1,13 +1,13 @@
 const headerVisa = {
-    titleVisa : '.h2.text-center'
+    titleVisa : 'h2.text-center'
     }
     
     const search = {
-    fromCountry : '#select2-from_country-container',
-    toCountry: '#select2-to_country-container',
-    Date: '#date',
-    Submit: '#submit',
-    fromCountryEmpty: 'Please select an item in the list', 
+    fromCountry : '#from_country',
+    toCountry: '#to_country',
+    date: '#date',
+    submit: '#submit',
+    countryEmpty: 'Please select an item in the list.', 
     }
     
     const submissionForm = {

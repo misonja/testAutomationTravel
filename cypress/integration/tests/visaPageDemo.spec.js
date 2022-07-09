@@ -20,7 +20,39 @@ describe('Visa page tests', function() {
       
      it('Submit visa - validation', function() {
         cy.get(search.submit).click({force:true})
-        cy.get(form.email).invoke('prop', 'validationMessage')
-        .should('equal', form.emailFormat)
+        cy.get(search.fromCountry).invoke('prop', 'validationMessage')
+        .should('equal', search.countryEmpty)
+
+        cy.get(search.fromCountry).select("RS",{force:true})
+        cy.get(search.submit).click({force:true})
+        cy.get(search.toCountry).invoke('prop', 'validationMessage')
+        .should('equal', search.countryEmpty)
+})
+
+it('Search visa', function() {
+    cy.get(search.fromCountry).select("RS",{force:true})
+    cy.get(search.submit).click({force:true})
+
+    cy.get(search.toCountry).select("GR",{force:true})
+    cy.get(search.submit).click({force:true})
+
+    cy.get(submissionForm.submissionHeader).should('be.visible')
+})
+
+it('Submit visa', function() {
+    cy.get(search.fromCountry).select("RS",{force:true})
+    cy.get(search.submit).click({force:true})
+
+    cy.get(search.toCountry).select("GR",{force:true})
+    cy.get(search.submit).click({force:true})
+
+    cy.get(submissionForm.submissionHeader).should('be.visible')
+    cy.get(submissionForm.submissionHeaderDate).should('be.visible')
+    cy.get(submissionForm.firstName).type('Sonja', {force: true})
+    cy.get(submissionForm.lastName).type('Milovanovic', {force: true})
+    cy.get(submissionForm.phone).type('1111111111', {force: true})
+    cy.get(submissionForm.notes).type('Notes text', {force: true})
+    cy.get(submissionForm.submit).click({force:true})
+    cy.get(submissionForm.successfulMessageSubmit).should('be.visible')
 })
      })

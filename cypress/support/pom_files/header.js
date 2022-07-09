@@ -10,7 +10,7 @@ const mainMenu = {
     hotels: 'Hotels',
     flights: 'Fligts',
     tours: 'Tours',
-    visa: 'Visa',
+    visa: 'visa',
     blog: 'Blog',
     offers: 'Offers',
     company: 'Company'
