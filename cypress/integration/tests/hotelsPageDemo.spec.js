@@ -79,7 +79,7 @@ describe('Hotels page tests', function() {
         cy.get(search.cityName).click({force:true})
         cy.get(search.cityNameInput, {timeout:4000}).type('Bel', {force: true})
         cy.selectCityFromList('Belgrade')
-
+        cy.setDates()
         cy.get(search.travellers).click({force: true})
         cy.get(search.childInc).click({force: true})
         cy.get(search.search).click({force:true})

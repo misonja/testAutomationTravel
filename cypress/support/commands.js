@@ -48,6 +48,11 @@ Cypress.Commands.add('verifyRequiredFields', (element2) => {
       cy.get (search.cityListGlobal).contains(city).click({force: true})
       });
 
+      Cypress.Commands.add('setDates', (city) => {
+        cy.get(search.checkin).type('01-07-2022', {force: true})
+        cy.get(search.checkout).type('10-07-2022', {force: true})
+        });
+
  Cypress.Commands.add("setAmountRange", () => {
       cy.get(searchTours.filterTitle)
         .scrollIntoView()
