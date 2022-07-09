@@ -17,5 +17,11 @@ Feature: Check if user can navigate to pages
     When user navigates to "Hotels" page
     Then user is on "HOTELS" page
     And user is logged out
+ 
+    Scenario: Visa page navigation
+    Given user is logged in
+    When user navigates to "visa" page
+    Then user is on "Visa" page
+    And user is logged out
 
 
