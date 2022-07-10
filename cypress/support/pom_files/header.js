@@ -17,4 +17,8 @@ const mainMenu = {
 
 }
 
-export {topHeader, mainMenu}
+const headerPage = {
+    pageTitle: 'h2.text-center'
+}
+
+export {topHeader, mainMenu, headerPage}
