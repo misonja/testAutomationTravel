@@ -2,7 +2,7 @@
 
 import {topHeader, mainMenu, headerPage} from "../../support/pom_files/header"
 import {title, form} from "../../support/pom_files/loginPage"
-import {searchFlights } from "../../support/pom_files/flightsPage"
+import {searchFlights} from "../../support/pom_files/flightsPage"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -20,7 +20,14 @@ describe('Flight page tests', function() {
       
 
 it.only('Search flights', function() {
-    cy.get(searchFlights.fromCountry).select("CNS",{force:true})
+    cy.getDropdownOptions(searchFlights.flyingFrom,"CGK")
+    cy.get(searchFlights.flyingFrom).should('have.value', 'CGK - Soekarno Hatta Intl - Jakarta')
+    cy.getDropdownOptions(searchFlights.toDestination,"DPS")
+    cy.get(searchFlights.toDestination).should('have.value', 'DPS - Bali Ngurah Rai - Denpasar')
 
+    cy.get(searchFlights.passengers).click({force: true})
+    cy.get(searchFlights.adultsPlus).click({force: true})
+    cy.get(searchFlights.childsPlus).click({force: true})
+    cy.get 
 })
      })

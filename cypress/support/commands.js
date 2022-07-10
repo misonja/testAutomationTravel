@@ -29,7 +29,7 @@ import { tours,searchTours,filter} from "./pom_files/toursPage";
 import {titleSignUp, formSignUp} from "./pom_files/signUpPage";
 import {sidebar,info,accountDemoInfo } from "./pom_files/homePageDemo";
 import {headerHotels,search,featuredHotels, searchResult  } from "../support/pom_files/hotelsPage"
-
+import {searchFlights, modifySearch, priceRange, airlines } from "../support/pom_files/flightsPage"
 
 Cypress.Commands.add('loginToApp', (emailText, passwordText) => {
   cy.get(topHeader.login).click()
@@ -71,4 +71,11 @@ Cypress.Commands.add('verifyRequiredFields', (element2) => {
       cy.get(topHeader.account).click({force: true})
       cy.get(topHeader.logoutAccount).click({force: true})
       cy.get(form.email).should('be.visible')
+    });
+
+    Cypress.Commands.add("getDropdownOptions", (element, country) => {
+      cy.get(element).type(country, {force: true})
+      cy.get('.autocomplete-result')
+      .contains(country)
+      .click({force: true})      
     });
