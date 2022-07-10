@@ -1,6 +1,6 @@
 ///<reference types = "Cypress" />
 
-import {topHeader, mainMenu} from "../../support/pom_files/header"
+import {topHeader, mainMenu, headerPage} from "../../support/pom_files/header"
 import {title, form} from "../../support/pom_files/loginPage"
 import {headerVisa, search, submissionForm } from "../../support/pom_files/visaPage"
 
@@ -15,7 +15,7 @@ describe('Visa page tests', function() {
      beforeEach('Navigate to Visa page and login demo user', function() {
          cy.visit(Cypress.env("baseUrl"))
          cy.contains(mainMenu.visa).click({force: true})
-         cy.get(headerVisa.titleVisa, {timeout:3000}).should('be.visible')
+         cy.get(headerPage.pageTitle, {timeout:3000}).should('be.visible')
      });
       
      it('Submit visa - validation', function() {

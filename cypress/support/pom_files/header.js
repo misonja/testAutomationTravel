@@ -8,7 +8,7 @@ const topHeader = {
 const mainMenu = {
     home: 'Home',
     hotels: 'Hotels',
-    flights: 'Fligts',
+    flights: 'flights',
     tours: 'Tours',
     visa: 'visa',
     blog: 'Blog',
