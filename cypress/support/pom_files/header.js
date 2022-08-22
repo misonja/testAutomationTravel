@@ -8,7 +8,7 @@ const topHeader = {
 const mainMenu = {
     home: 'Home',
     hotels: 'Hotels',
-    flights: 'Fligts',
+    flights: 'flights',
     tours: 'Tours',
     visa: 'visa',
     blog: 'Blog',
@@ -17,4 +17,13 @@ const mainMenu = {
 
 }
 
-export {topHeader, mainMenu}
+const headerPage = {
+    pageTitle : '.text-center'
+}
+
+const leftMenu = {
+    languages : '#languages',
+    usLanguage : '.flag-icon-us'
+}
+
+export {topHeader, mainMenu, headerPage, leftMenu}

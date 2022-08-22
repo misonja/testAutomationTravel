@@ -1,6 +1,6 @@
 ///<reference types = "Cypress" />
 
-import {topHeader, mainMenu, headerPage} from "../../support/pom_files/header"
+import {topHeader, mainMenu, headerPage, leftMenu} from "../../support/pom_files/header"
 import {title, form} from "../../support/pom_files/loginPage"
 import {searchFlights} from "../../support/pom_files/flightsPage"
 
@@ -14,6 +14,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 describe('Flight page tests', function() {
      beforeEach('Navigate to Flight page and login demo user', function() {
          cy.visit(Cypress.env("baseUrl"))
+         cy.get(leftMenu.languages).click({force: true})
+         cy.get(leftMenu.usLanguage).click({force: true})
          cy.contains(mainMenu.flights).click({force: true})
          cy.get(headerPage.pageTitle, {timeout:3000}).contains('SEARCH FOR BEST FLIGHTS').should('be.visible')
      });
