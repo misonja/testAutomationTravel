@@ -2,7 +2,7 @@
 
 import {topHeader, mainMenu, headerPage, leftMenu} from "../../support/pom_files/header"
 import {title, form} from "../../support/pom_files/loginPage"
-import {searchFlights} from "../../support/pom_files/flightsPage"
+import {searchFlights, redirectPage, leftInfo, rightInfo, modifySearch, priceRange, airlines,leftInfo} from "../../support/pom_files/flightsPage"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -30,6 +30,10 @@ it.only('Search flights', function() {
     cy.get(searchFlights.passengers).click({force: true})
     cy.get(searchFlights.adultsPlus).click({force: true})
     cy.get(searchFlights.childsPlus).click({force: true})
-    cy.get 
+    cy.get(searchFlights.search).click({force: true})
+    
+    cy.get(leftInfo.passengersInfo).contains('Adults 2 Childs 1 Infants 0')
+    
+    
 })
      })
